@@ -6,7 +6,7 @@
   "description": "a - ready to go - mobile menu with slidebars",
   "main": [
     "src/styles.css",
-    "src/quickslidebars.jquery.min.js"
+    "src/quickslidebars.jquery.js"
   ],
   "keywords": [
     "slidebars",
