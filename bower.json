@@ -3,8 +3,11 @@
   "authors": [
     "alexwenzel <alexander.wenzel.berlin@gmail.com>"
   ],
-  "description": "a ready to go integration for a mobile menu with slidebars",
-  "main": "",
+  "description": "a - ready to go - mobile menu with slidebars",
+  "main": [
+    "src/styles.css",
+    "src/quickslidebars.jquery.min.js"
+  ],
   "keywords": [
     "slidebars",
     "mobile",

@@ -3,9 +3,12 @@
 
     var pluginName = "quickSlidebars",
         defaults = {
+            slidebarName: null,
+            bodyOpenClass: 'qs-open',
             burgerMenuSelector: '.qs-toggle',
             burgerMenuOpenClass: 'qs-toggle--open',
-            slidebarName: null
+            hasChildSelector: '.qs-item--has-child',
+            slideDuration: 200
         };
 
     /**
@@ -49,7 +52,7 @@
 
                 // toggle slidebar
                 $(this).toggleClass(self.settings.burgerMenuOpenClass);
-                $('body').toggleClass('qs-open');
+                $('body').toggleClass(self.settings.bodyOpenClass);
                 self._controller.toggle(self.settings.slidebarName);
             });
         },
@@ -59,10 +62,10 @@
          */
         _bindCanvasEvents: function () {
             var self = this;
-            $('[canvas="container"]').on('click', function () {
+            $('[canvas="container"]').on('click tap', function () {
                 // close slidebar
                 $(self.settings.burgerMenuSelector).removeClass(self.settings.burgerMenuOpenClass);
-                $('body').removeClass('qs-open');
+                $('body').removeClass(self.settings.bodyOpenClass);
                 self._controller.close(self.settings.slidebarName);
             });
         },
@@ -71,7 +74,8 @@
          * @private
          */
         _bindMenuItemToggle: function () {
-            this._$element.on('click tap', '.qs-item--has-child', function (event) {
+            var self = this;
+            this._$element.on('click tap', self.settings.hasChildSelector, function (event) {
 
                 var $menuitem = $(event.currentTarget),
                     $menuitemSiblings = $menuitem.parent().siblings();
@@ -79,12 +83,12 @@
                 event.preventDefault();
 
                 $menuitemSiblings.find('a').removeClass('open');
-                $menuitemSiblings.find('ul').slideUp(200);
+                $menuitemSiblings.find('ul').slideUp(self.settings.slideDuration);
 
                 if ($menuitem.hasClass('open')) {
-                    $menuitem.next('ul').slideUp(200);
+                    $menuitem.next('ul').slideUp(self.settings.slideDuration);
                 } else {
-                    $menuitem.next('ul').slideToggle(200);
+                    $menuitem.next('ul').slideToggle(self.settings.slideDuration);
                 }
 
                 $menuitem.toggleClass('open');

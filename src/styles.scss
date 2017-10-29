@@ -3,7 +3,6 @@
 
 .qs {
 
-  $qs-active: red;
   $qs-border: black;
   $qs-font-size: 16px;
   background-color: white;
@@ -21,9 +20,8 @@
         display: block;
         padding: 18px 40px 17px 20px;
         position: relative;
-        transition: all 175ms ease-out;
         border-bottom: 1px solid $qs-border;
-
+        line-height: $qs-font-size;
 
         &:after {
           position: absolute;
@@ -48,7 +46,6 @@
           content: $fa-var-chevron-up;
         }
         &.active {
-          transition: all 175ms ease-out;
           border-bottom: 1px solid white;
 
           & + ul {
@@ -67,11 +64,9 @@
     }
 
     // first level
-    > li {
+    > .qs-level {
 
       > a {
-        text-transform: uppercase;
-        font-size: 16px;
         line-height: 16px;
         padding-top: 16px;
         padding-bottom: 16px;
@@ -83,12 +78,12 @@
         padding: 0;
         list-style: none;
 
-        li {
+        .qs-level {
           a {
             padding-left: 40px !important;
           }
 
-          ul li a {
+          ul .qs-level a {
             padding-left: 55px !important;
           }
         }
