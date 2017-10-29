@@ -1,0 +1,26 @@
+{
+  "name": "quick-slidebars",
+  "authors": [
+    "alexwenzel <alexander.wenzel.berlin@gmail.com>"
+  ],
+  "description": "a ready to go integration for a mobile menu with slidebars",
+  "main": "",
+  "keywords": [
+    "slidebars",
+    "mobile",
+    "menu"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "slidebars": "^2.0.2",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
